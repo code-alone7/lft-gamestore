@@ -12,6 +12,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="https://kit.fontawesome.com/0b65be8ff5.js" crossorigin="anonymous"></script>
   </head>
   <body class="font-sans antialiased">
     <div class="main-wrapper">
