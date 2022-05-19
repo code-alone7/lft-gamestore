@@ -20,7 +20,7 @@ class Genre extends Model
     ];
 
     /**
-     * Get user who uploaded this game.
+     * Get user who uploaded this genre.
      *
      * @return BelongsTo
      */
