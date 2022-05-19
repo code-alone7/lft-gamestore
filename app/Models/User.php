@@ -52,4 +52,14 @@ class User extends Authenticatable
     {
         return $this->hasMany(Genre::class, 'uploader_id');
     }
+
+    /**
+     * Get all games that was uploaded by this user.
+     *
+     * @return HasMany
+     */
+    public function games(): HasMany
+    {
+        return $this->hasMany(Game::class, 'uploader_id');
+    }
 }
