@@ -15,7 +15,7 @@ class FakeDataSeeder extends Seeder
     public function run()
     {
         $this->call([
-            FakeDataSeeder::class,
+            GenreSeeder::class,
         ]);
     }
 }
