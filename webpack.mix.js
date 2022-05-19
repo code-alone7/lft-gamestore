@@ -1,10 +1,6 @@
 const mix = require('laravel-mix');
 
-mix.webpackConfig({
-    stats: {
-        children: true,
-    }
-})
+const tailwindcss = require('tailwindcss');
 
 /*
  |--------------------------------------------------------------------------
@@ -17,8 +13,11 @@ mix.webpackConfig({
  |
  */
 
-mix.js('resources/js/app.js', 'public/js').postCss('resources/css/app.css', 'public/css', [
-    require('postcss-import'),
-    require('tailwindcss'),
-    require('autoprefixer'),
-]);
+mix.js('resources/js/app.js', 'public/js')
+
+mix.sass('resources/scss/main.scss', 'public/css/app.css')
+    .options({
+        postCss: [ tailwindcss('./tailwind.config.js') ],
+    })
+
+mix.copy('resources/img', 'public/img')
