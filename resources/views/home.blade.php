@@ -1,4 +1,4 @@
-<x-app-layout title="Gamestore home page" header="Последние новинки">
+<x-app-layout title="Gamestore home page" header="Последние новинки" content-top>
   <div class="products-category__list">
     <div class="products-category__list__item">
       <div class="products-category__list__item__title-product"><a href="#">Batman - Telltale Game Series</a></div>

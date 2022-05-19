@@ -20,11 +20,13 @@ class AppLayout extends Component
      */
     public string $header = '';
 
+    public bool $contentTop;
 
-    public function __construct(string $title, string $header)
+    public function __construct(string $title, string $header, bool $contentTop = false)
     {
         $this->title = $title;
         $this->header = $header;
+        $this->contentTop = $contentTop;
     }
 
     /**
