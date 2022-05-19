@@ -2,10 +2,11 @@
 
 namespace Database\Seeders;
 
+use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class FakeDataSeeder extends Seeder
+class GameSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,9 +15,8 @@ class FakeDataSeeder extends Seeder
      */
     public function run()
     {
-        $this->call([
-            GenreSeeder::class,
-            GameSeeder::class,
-        ]);
+        User::factory()
+            ->hasGames(24)
+            ->create();
     }
 }
