@@ -19,7 +19,6 @@ mix.webpackConfig({
 
 mix.js('resources/js/app.js', 'public/js')
 
-mix.sass('resources/scss/main.scss', 'public/css/app.css', [
-  require('tailwindcss'),
-  require('autoprefixer'),
-])
+mix.sass('resources/scss/main.scss', 'public/css/app.css')
+
+mix.copy('resources/img', 'public/img')
