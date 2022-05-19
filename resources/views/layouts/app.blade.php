@@ -16,12 +16,7 @@
   <body class="font-sans antialiased">
     <div class="main-wrapper">
       <x-header>
-        <div class="payment-container">
-          <div class="payment-basket__status">
-            <div class="payment-basket__status__icon-block"><a class="payment-basket__status__icon-block__link"><i class="fa fa-shopping-basket"></i></a></div>
-            <div class="payment-basket__status__basket"><span class="payment-basket__status__basket-value">0</span><span class="payment-basket__status__basket-value-descr">товаров</span></div>
-          </div>
-        </div>
+        <x-payment/>
         <div class="authorization-block"><a href="#" class="authorization-block__link">Регистрация</a><a href="#" class="authorization-block__link">Войти</a></div>
       </x-header>
       <div class="middle">
