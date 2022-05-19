@@ -21,7 +21,7 @@
       </x-header>
       <div class="middle">
         <x-sidebar/>
-        <x-content :header="$header" :content-top="$contentTop">
+        <x-content :header="$header" :content-top="$contentTop" :header-bottom="$headerBottom ?? null" :content-bottom="$contentBottom ?? null">
           {{ $slot }}
         </x-content>
       </div>

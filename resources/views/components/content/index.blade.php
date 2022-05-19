@@ -31,5 +31,9 @@
       </ul>
     </div>
   </div>
-  <div class="content-bottom"></div>
+  @isset($headerBottom, $contentBottom)
+    <x-content.bottom :header="$headerBottom">
+      {{ $contentBottom }}
+    </x-content.bottom>
+  @endisset
 </div>
