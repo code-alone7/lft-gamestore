@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\GameController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\HomeController as Jp;
 use Illuminate\Support\Facades\Route;
@@ -16,5 +17,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', HomeController::class);
+
+Route::prefix('games')->group(function () {
+    Route::get('/', [GameController::class, 'index'])->name('games');
+});
 
 require __DIR__.'/auth.php';
