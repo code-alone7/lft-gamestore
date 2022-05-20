@@ -22,7 +22,7 @@
       </x-header>
       <div class="middle">
         <x-sidebar/>
-        <x-content :header="$header" :content-top="$contentTop" :header-bottom="$headerBottom ?? null" :content-bottom="$contentBottom ?? null">
+        <x-content :header="$header" :content-top="$contentTop" :header-bottom="$headerBottom ?? null" :content-bottom="$contentBottom ?? null" :paginator="$paginator">
           {{ $slot }}
         </x-content>
       </div>

@@ -1,4 +1,4 @@
-<x-app-layout title="Gamestore home page" header="Последние новинки" content-top>
+<x-app-layout title="Gamestore home page" header="Последние новинки" content-top :paginator="$games">
   <div class="products-category__list">
     @foreach($games as $game)
       <div class="products-category__list__item">

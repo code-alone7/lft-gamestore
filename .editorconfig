@@ -17,5 +17,5 @@ indent_size = 4
 [docker-compose.yml]
 indent_size = 2
 
-[*.{html,blade.php}]
+[*.{html,blade.php,scss,sass,css}]
 indent_size = 2
