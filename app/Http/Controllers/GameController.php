@@ -39,10 +39,19 @@ class GameController extends Controller
      * Display the specified resource.
      *
      * @param  \App\Models\Game  $game
-     * @return \Illuminate\Http\Response
+     * @return Application|Factory|View
      */
-    public function show(Game $game)
+    public function show(Game $game): View|Factory|Application
     {
+        $recommendations = Game::query();
 
+        foreach ($game->genres as $genre) {
+            $recommendations->whereRelation('genres', 'genres.id', $genre->id);
+        }
+
+        return view('games.show', [
+            'game' => $game,
+            'recommendations' => $recommendations->take(3)->get(),
+        ]);
     }
 }

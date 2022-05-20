@@ -16,10 +16,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', HomeController::class);
+Route::get('/', HomeController::class)->name('home');
 
 Route::prefix('games')->group(function () {
     Route::get('/', [GameController::class, 'index'])->name('games');
+    Route::get('/show/{game}', [GameController::class, 'show'])->name('games.show');
 });
 
 require __DIR__.'/auth.php';
