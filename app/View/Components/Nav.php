@@ -7,7 +7,7 @@ use Illuminate\View\Component;
 class Nav extends Component
 {
     public array $links = [
-        ["title" => "главная", "href" => "#"],
+        ["title" => "главная", "href" => "/"],
         ["title" => "мои заказы", "href" => "#"],
         ["title" => "новости", "href" => "#"],
         ["title" => "о компании", "href" => "#"],
