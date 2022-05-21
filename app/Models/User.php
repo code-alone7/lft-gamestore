@@ -62,4 +62,14 @@ class User extends Authenticatable
     {
         return $this->hasMany(Game::class, 'uploader_id');
     }
+
+    /**
+     * Get all articles that was uploaded by this user.
+     * 
+     * @return HasMany
+     */
+    public function articles(): HasMany
+    {
+        return $this->hasMany(Article::class, 'uploader_id');
+    }
 }
