@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Support\Facades\Storage;
 
 class Game extends Model
 {
@@ -47,7 +48,7 @@ class Game extends Model
     public function photo(): Attribute
     {
         return Attribute::make(
-            fn ($value) => $value . '?' . rand(1, PHP_INT_MAX)
+            fn ($value) => Storage::disk('public')->url($value)
         );
     }
 }

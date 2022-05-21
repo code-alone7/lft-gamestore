@@ -5,6 +5,8 @@ namespace Database\Factories;
 use App\Models\Game;
 use App\Models\Genre;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Http\File;
+use Illuminate\Support\Facades\Storage;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Game>
@@ -22,9 +24,10 @@ class GameFactory extends Factory
             'title' => $this->faker->unique()->text(rand(10,30)),
             'price' => rand(1, 30) * 100,
             'description' => $this->formattedText(rand(2, 5), rand(200, 600)),
-            'photo' => 'https://picsum.photos/250/145',
+            'photo' => $this->photo('games/photos/', 250, 145),
         ];
     }
+    //'https://picsum.photos/250/145'
 
     public function configure(): GameFactory
     {
@@ -61,5 +64,15 @@ class GameFactory extends Factory
         }
 
         return $text;
+    }
+
+    private function photo(string $path, int $width, int $height): string
+    {
+        $downloadPath = $path . uniqid() . '.jpg';
+        Storage::disk('public')->put(
+            $downloadPath,
+            file_get_contents("https://picsum.photos/$width/$height")
+        );
+        return $downloadPath;
     }
 }

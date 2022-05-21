@@ -16,7 +16,7 @@ class GameSeeder extends Seeder
     public function run()
     {
         User::factory()
-            ->hasGames(92)
+            ->hasGames(24)
             ->create();
     }
 }
