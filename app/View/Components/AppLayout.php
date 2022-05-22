@@ -2,6 +2,7 @@
 
 namespace App\View\Components;
 
+use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\View\Component;
 
 class AppLayout extends Component
@@ -22,11 +23,14 @@ class AppLayout extends Component
 
     public bool $contentTop;
 
-    public function __construct(string $title, string $header, bool $contentTop = false)
+    public LengthAwarePaginator|null $paginator;
+
+    public function __construct(string $title, string $header, bool $contentTop = false, LengthAwarePaginator|null $paginator = null)
     {
         $this->title = $title;
         $this->header = $header;
         $this->contentTop = $contentTop;
+        $this->paginator = $paginator;
     }
 
     /**

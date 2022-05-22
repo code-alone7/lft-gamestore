@@ -33,12 +33,17 @@
       font-weight: bold;
       line-height: 1.7rem;
       text-align: center;
-      &:hover,
-      &:focus,
-      &--active {
-        color: #d28324;
-      }
-    }
 
+        &:hover, &:focus, &--active {
+          color: #d28324;
+        }
+        &--disabled {
+          color: gray;
+        }
+        &--disabled, &--active, &--inactive{
+          cursor: default;
+          pointer-events: none;
+        }
+    }
   }
 }

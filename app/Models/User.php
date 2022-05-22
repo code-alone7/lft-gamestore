@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
@@ -41,4 +42,34 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Get all genres that was uploaded by this user.
+     *
+     * @return HasMany
+     */
+    public function genres(): HasMany
+    {
+        return $this->hasMany(Genre::class, 'uploader_id');
+    }
+
+    /**
+     * Get all games that was uploaded by this user.
+     *
+     * @return HasMany
+     */
+    public function games(): HasMany
+    {
+        return $this->hasMany(Game::class, 'uploader_id');
+    }
+
+    /**
+     * Get all articles that was uploaded by this user.
+     * 
+     * @return HasMany
+     */
+    public function articles(): HasMany
+    {
+        return $this->hasMany(Article::class, 'uploader_id');
+    }
 }
