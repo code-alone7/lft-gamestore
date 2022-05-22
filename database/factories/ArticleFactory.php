@@ -3,15 +3,14 @@
 namespace Database\Factories;
 
 use App\Traits\FormattedTextGenerator;
+use App\Traits\PhotoGenerator;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Facades\Storage;
-
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Article>
  */
 class ArticleFactory extends Factory
 {
-    use FormattedTextGenerator;
+    use FormattedTextGenerator, PhotoGenerator;
 
     /**
      * Define the model's default state.
@@ -25,16 +24,5 @@ class ArticleFactory extends Factory
             'content' => $this->formattedText(rand(3,6), rand(200, 600)),
             'photo' => $this->photo('articles/photos/', 250, 145),
         ];
-    }
-
-
-    private function photo(string $path, int $width, int $height): string
-    {
-        $downloadPath = $path . uniqid() . '.jpg';
-        Storage::disk('public')->put(
-            $downloadPath,
-            file_get_contents("https://picsum.photos/$width/$height")
-        );
-        return $downloadPath;
     }
 }

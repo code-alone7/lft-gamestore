@@ -5,16 +5,15 @@ namespace Database\Factories;
 use App\Models\Game;
 use App\Models\Genre;
 use App\Traits\FormattedTextGenerator;
+use App\Traits\PhotoGenerator;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Http\File;
-use Illuminate\Support\Facades\Storage;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Game>
  */
 class GameFactory extends Factory
 {
-    use FormattedTextGenerator;
+    use FormattedTextGenerator, PhotoGenerator;
 
     /**
      * Define the model's default state.
@@ -47,15 +46,5 @@ class GameFactory extends Factory
                 $game->genres()->attach($genresID);
             }
         });
-    }
-
-    private function photo(string $path, int $width, int $height): string
-    {
-        $downloadPath = $path . uniqid() . '.jpg';
-        Storage::disk('public')->put(
-            $downloadPath,
-            file_get_contents("https://picsum.photos/$width/$height")
-        );
-        return $downloadPath;
     }
 }
