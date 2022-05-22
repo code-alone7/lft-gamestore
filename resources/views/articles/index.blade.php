@@ -4,7 +4,7 @@
       <div class="news-list__item">
         <div class="news-list__item__thumbnail"><img src="{{ $article->photo }}"></div>
         <div class="news-list__item__content">
-          <div class="news-list__item__content__news-title">{{ $article->title }}</div>
+          <div class="news-list__item__content__news-title">{{ $article->short_header }}</div>
           <div class="news-list__item__content__news-date">{{ $article->created_at }}</div>
           <div class="news-list__item__content__news-content">
             {{ $article->shortContent() }}

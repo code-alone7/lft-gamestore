@@ -20,7 +20,8 @@ class ArticleFactory extends Factory
     public function definition()
     {
         return [
-            'title' => $this->faker->unique()->text(rand(15, 30)),
+            'header' => $this->faker->text(rand(40, 130)),
+            'short_header' => $this->faker->text(rand(15, 30)),
             'content' => $this->formattedText(rand(3,6), rand(200, 600)),
             'photo' => $this->photo('articles/photos/', 250, 145),
         ];
