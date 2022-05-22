@@ -6,4 +6,12 @@
     <img src="{{ $article->photo }}" alt="Image" class="alignleft img-news">
     {!! $article->content !!}
   </div>
+
+  <x-slot:headerBottom>
+    Посмотрите наши товары
+  </x-slot:headerBottom>
+
+  <x-slot:contentBottom>
+    <x-products :content="$games" />
+  </x-slot:contentBottom>
 </x-app-layout>
