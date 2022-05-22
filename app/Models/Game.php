@@ -45,6 +45,11 @@ class Game extends Model
         return $this->belongsToMany(Genre::class);
     }
 
+    /**
+     * Mutator for photo field.
+     * 
+     * @return Attribute
+     */
     public function photo(): Attribute
     {
         return Attribute::make(
