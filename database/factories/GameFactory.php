@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use App\Models\Game;
 use App\Models\Genre;
+use App\Traits\FormattedTextGenerator;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Http\File;
 use Illuminate\Support\Facades\Storage;
@@ -13,6 +14,8 @@ use Illuminate\Support\Facades\Storage;
  */
 class GameFactory extends Factory
 {
+    use FormattedTextGenerator;
+
     /**
      * Define the model's default state.
      *
@@ -44,26 +47,6 @@ class GameFactory extends Factory
                 $game->genres()->attach($genresID);
             }
         });
-    }
-
-    /**
-     * Randomly generate paragraphs wrapped in <p> tag.
-     *
-     * @param int $pNum amount of paragraphs.
-     * @param int $pLength length of paragraphs.
-     * @return string
-     */
-    private function formattedText(int $pNum, int $pLength): string
-    {
-        $text = '';
-
-        for ($i = 0; $i < $pNum; $i++) {
-            $text .= '<p>';
-            $text .= $this->faker->realText($pLength);
-            $text .= '</p>';
-        }
-
-        return $text;
     }
 
     private function photo(string $path, int $width, int $height): string
