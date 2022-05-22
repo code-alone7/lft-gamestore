@@ -10,7 +10,7 @@ class Nav extends Component
 
     public function __construct()
     {   
-        $this->glinks = [
+        $this->links = [
             ["title" => "главная", "href" => route('home')],
             ["title" => "мои заказы", "href" => "#"],
             ["title" => "новости", "href" => route('articles')],
