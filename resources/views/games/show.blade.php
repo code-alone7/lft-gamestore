@@ -9,7 +9,7 @@
           руб
         </div><a href="#" class="btn btn-blue">Купить</a>
       </div>
-      <div class="product-container__content-text__description">
+      <div class="product-container__content-text__description content-text">
         {!! $game->description !!}
       </div>
     </div>
