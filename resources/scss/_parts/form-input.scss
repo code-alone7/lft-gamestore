@@ -1,0 +1,29 @@
+.form-input,.form-input:active, .form-input:focus {
+  outline: none;
+}
+
+.form-input {
+  box-sizing: border-box;
+  height: 30px;
+  border-radius: none;
+
+  &--button {
+    padding: 0 60px;
+    border: none;
+    background-color: rgb(49, 49, 49);
+    color: white;
+    //text-transform: uppercase;
+    font-weight: 600;
+    transition: background 100ms, color 100ms;
+  
+    &:active, &:focus, &:hover {
+      background-color: rgb(208, 226, 108);
+      color: black;
+    }
+  }
+
+  &--checkbox {
+    height: 20px;
+    width: 20px;
+  }
+}

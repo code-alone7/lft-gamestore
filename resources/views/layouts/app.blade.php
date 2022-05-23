@@ -18,7 +18,14 @@
     <div class="main-wrapper">
       <x-header>
         <x-payment/>
-        <div class="authorization-block"><a href="#" class="authorization-block__link">Регистрация</a><a href="#" class="authorization-block__link">Войти</a></div>
+        <div class="authorization-block">
+          @auth
+            <a href="{{ route('logout') }}" class="authorization-block__link">Выйти</a>
+          @else
+            <a href="{{ route('register') }}" class="authorization-block__link">Регистрация</a>
+            <a href="{{ route('login') }}" class="authorization-block__link">Войти</a>
+          @endauth
+        </div>
       </x-header>
       <div class="middle">
         <x-sidebar/>

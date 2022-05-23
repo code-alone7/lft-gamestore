@@ -108,7 +108,17 @@ img {
   height: 1px;
 }
 
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
 @import '_parts/content.scss';
 @import '_parts/pagination.scss';
 @import '_parts/wp_style.scss';
 @import '_parts/footer.scss';
+@import '_parts/form.scss';
+@import '_parts/form-row.scss';
+@import '_parts/form-cell.scss';
+@import '_parts/form-label.scss';
+@import '_parts/form-input.scss';
+@import '_parts/form-button.scss';
