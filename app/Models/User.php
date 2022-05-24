@@ -72,4 +72,14 @@ class User extends Authenticatable
     {
         return $this->hasMany(Article::class, 'uploader_id');
     }
+
+    /**
+     * Get all orders of this user.
+     * 
+     * @return HasMany 
+     */    
+    public function orders(): HasMany
+    {
+        return $this->hasMany(Order::class, 'customer_id');
+    }
 }
