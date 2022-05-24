@@ -15,7 +15,8 @@ class OrderStatusSeeder extends Seeder
      */
     public function run()
     {        
-        OrderStatus::create(['title' => 'unpaid']);
-        OrderStatus::create(['title' => 'paid']);
+        OrderStatus::create(['title' => config('orders.status_unpaid')]);
+        OrderStatus::create(['title' => config('orders.status_paid')]);
+        OrderStatus::create(['title' => config('orders.status_canceled')])
     }
 }

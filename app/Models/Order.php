@@ -50,7 +50,7 @@ class Order extends Model
      */
     public function scopeUnpaid(Builder $query): Builder
     {
-        return $query->whereRelation('status', 'title', 'unpaid');
+        return $query->whereRelation('status', 'title', config('orders.status_unpaid'));
     }
 
     /**
@@ -61,6 +61,6 @@ class Order extends Model
      */
     public function scopePaid(Builder $query): Builder
     {
-        return $query->whereRelation('order_statuses', 'title', 'paid');
+        return $query->whereRelation('order_statuses', 'title', config('orders.status_paid'));
     }
 }

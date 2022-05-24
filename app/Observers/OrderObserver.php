@@ -22,6 +22,6 @@ class OrderObserver
             throw new CurrentOrderExist('This user already has upaid order');
         }
 
-        $order->order_status_id = OrderStatus::query()->where('title', 'unpaid')->first()->id;
+        $order->order_status_id = OrderStatus::query()->where('title', config('orders.status_unpaid'))->first()->id;
     }
 }
