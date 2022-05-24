@@ -41,6 +41,18 @@ class Order extends Model
     {
         return $this->belongsTo(OrderStatus::class, 'order_status_id');
     }
+    
+    /**
+     * Scope a query to only include order of certain status.
+     *
+     * @param  Builder $query
+     * @param  string $status
+     * @return Builder
+     */
+    public function scopeOfStatus(Builder $query, string $status): Builder
+    {
+        return $query->whereRelation('status', 'title', $status);
+    }
 
     /**
      * Scope a query to only include unpaid orders.
@@ -50,7 +62,7 @@ class Order extends Model
      */
     public function scopeUnpaid(Builder $query): Builder
     {
-        return $query->whereRelation('status', 'title', config('orders.status_unpaid'));
+        return $query->ofStatus(config('orders.status_unpaid'));
     }
 
     /**
@@ -61,6 +73,17 @@ class Order extends Model
      */
     public function scopePaid(Builder $query): Builder
     {
-        return $query->whereRelation('order_statuses', 'title', config('orders.status_paid'));
+        return $query->ofStatus('order_statuses', 'title', config('orders.status_paid'));
+    }
+    
+    /**
+     * Set status of this order.
+     *
+     * @param  string $status
+     * @return void
+     */
+    public function setStatus(string $status): void
+    {
+        $this->assosiate(OrderStatus::query()->where('title', $status)->first());
     }
 }

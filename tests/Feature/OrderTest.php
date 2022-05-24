@@ -30,10 +30,10 @@ class OrderTest extends TestCase
     public function test_users_current_order()
     {
         $user = User::factory()->create();
-        $order = $user->currentOrderOrCreate();
+        $order = $user->currentOrderCreate();
 
-        $this->assertNotEmpty($user->currentOrderOrCreate());
-        $this->assertEquals($order->id, $user->currentOrderOrCreate()->id);
+        $this->assertNotEmpty($user->currentOrderCreate());
+        $this->assertEquals($order->id, $user->currentOrderCreate()->id);
     }
 
     public function test_users_isCrrentOrder_work()
@@ -42,7 +42,7 @@ class OrderTest extends TestCase
 
         $this->assertFalse($user->hasCurrentOrder());
 
-        $user->currentOrderOrCreate();
+        $user->currentOrderCreate();
 
         $this->assertTrue($user->hasCurrentOrder());
     }
@@ -53,7 +53,7 @@ class OrderTest extends TestCase
 
         $this->assertFalse($user->hasCurrentOrder());
 
-        $user->currentOrderOrCreate();
+        $user->currentOrderCreate();
 
         $this->assertTrue($user->hasCurrentOrder());
 

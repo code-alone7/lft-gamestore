@@ -94,11 +94,12 @@ class User extends Authenticatable
     }
 
     /**
-     * Get or create current order of this user.
+     * Create current order of this user.
+     * If current order already exist it will be returned by this method.
      *
      * @return Order|static|null
      */
-    public function currentOrderOrCreate(): Order|static|null
+    public function currentOrderCreate(): Order|static|null
     {
         return $this->orders()->unpaid()->firstOrCreate();
     }
