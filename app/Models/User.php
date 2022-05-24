@@ -77,9 +77,53 @@ class User extends Authenticatable
      * Get all orders of this user.
      * 
      * @return HasMany 
-     */    
+     */
     public function orders(): HasMany
     {
         return $this->hasMany(Order::class, 'customer_id');
+    }
+
+    /**
+     * Get current order of this user.
+     *
+     * @return Order|static|null
+     */
+    public function currentOrder(): Order|static|null
+    {
+        return $this->orders()->unpaid()->first();
+    }
+
+    /**
+     * Get or create current order of this user.
+     *
+     * @return Order|static|null
+     */
+    public function currentOrderOrCreate(): Order|static|null
+    {
+        return $this->orders()->unpaid()->firstOrCreate();
+    }
+
+    /**
+     * Check if current order exist.
+     * 
+     * @return bool
+     */
+    public function hasCurrentOrder()
+    {
+        return (bool) $this->orders()->unpaid()->first();
+    }
+
+    /**
+     * Delete current order of this user.
+     * 
+     * @return void
+     */
+    public function deleteCurrentOrder(): void
+    {
+        $order = $this->currentOrder();
+
+        if ($order) {
+            $order->delete();
+        }
     }
 }

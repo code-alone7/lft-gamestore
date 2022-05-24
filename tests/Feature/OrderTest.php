@@ -13,11 +13,6 @@ class OrderTest extends TestCase
 {
     use RefreshDatabase, WithFaker;
 
-    /**
-     * A basic feature test example.
-     *
-     * @return void
-     */
     public function test_resations_work()
     {
         $user = User::factory()->create();
@@ -30,6 +25,41 @@ class OrderTest extends TestCase
         $this->assertNotEmpty($order);
         $this->assertNotEmpty($order->customer);
         $this->assertNotEmpty($user->orders->first());
+    }
+
+    public function test_users_current_order()
+    {
+        $user = User::factory()->create();
+        $order = $user->currentOrderOrCreate();
+
+        $this->assertNotEmpty($user->currentOrderOrCreate());
+        $this->assertEquals($order->id, $user->currentOrderOrCreate()->id);
+    }
+
+    public function test_users_isCrrentOrder_work()
+    {
+        $user = User::factory()->create();
+
+        $this->assertFalse($user->hasCurrentOrder());
+
+        $user->currentOrderOrCreate();
+
+        $this->assertTrue($user->hasCurrentOrder());
+    }
+
+    public function test_current_order_deletion()
+    {
+        $user = User::factory()->create();
+
+        $this->assertFalse($user->hasCurrentOrder());
+
+        $user->currentOrderOrCreate();
+
+        $this->assertTrue($user->hasCurrentOrder());
+
+        $user->deleteCurrentOrder();
+
+        $this->assertFalse($user->hasCurrentOrder());
     }
 
     protected $seed = true;

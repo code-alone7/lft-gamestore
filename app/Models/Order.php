@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -39,5 +40,27 @@ class Order extends Model
     public function status(): BelongsTo
     {
         return $this->belongsTo(OrderStatus::class, 'order_status_id');
+    }
+
+    /**
+     * Scope a query to only include unpaid orders.
+     * 
+     * @param  Builder  $query
+     * @return Builder
+     */
+    public function scopeUnpaid(Builder $query): Builder
+    {
+        return $query->whereRelation('status', 'title', 'unpaid');
+    }
+
+    /**
+     * Scope a query to only include paid orders.
+     * 
+     * @param  Builder  $query
+     * @return Builder
+     */
+    public function scopePaid(Builder $query): Builder
+    {
+        return $query->whereRelation('order_statuses', 'title', 'paid');
     }
 }
