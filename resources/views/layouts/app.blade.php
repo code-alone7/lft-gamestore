@@ -45,6 +45,7 @@
           что немаловажно, выгодно!
         </p>
       </x-footer>
+      <x-notifications />
     </div>
   </body>
 </html>

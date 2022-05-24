@@ -13,11 +13,11 @@ const tailwindcss = require('tailwindcss');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js')
+mix.js('resources/js/*.js', 'public/js');
 
 mix.sass('resources/scss/main.scss', 'public/css/app.css')
     .options({
-        postCss: [ tailwindcss('./tailwind.config.js') ],
+        postCss: [tailwindcss('./tailwind.config.js')],
     })
 
 mix.copy('resources/img', 'public/img')
