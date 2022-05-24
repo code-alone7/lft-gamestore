@@ -1,3 +1,4 @@
+@if($randomProduct)
 <div class="random-product-container">
   <div class="random-product-container__head">Случайный товар</div>
   <div class="random-product-container__content">
@@ -11,3 +12,4 @@
     </div>
   </div>
 </div>
+@endif
