@@ -20,7 +20,10 @@
         <x-payment/>
         <div class="authorization-block">
           @auth
-            <a href="{{ route('logout') }}" class="authorization-block__link">Выйти</a>
+            <form method="POST" action="{{ route('logout') }}">            
+              @csrf  
+              <button type="submit" class="authorization-block__link">Выйти</button>
+            </form>
           @else
             <a href="{{ route('register') }}" class="authorization-block__link">Регистрация</a>
             <a href="{{ route('login') }}" class="authorization-block__link">Войти</a>
