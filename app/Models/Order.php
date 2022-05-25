@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Order extends Model
 {
@@ -85,5 +86,15 @@ class Order extends Model
     public function setStatus(string $status): void
     {
         $this->assosiate(OrderStatus::query()->where('title', $status)->first());
+    }
+    
+    /**
+     * Get all games in this order.
+     *
+     * @return BelongsToMany
+     */
+    public function games(): BelongsToMany
+    {
+        return $this->belongsToMany(Game::class);
     }
 }
