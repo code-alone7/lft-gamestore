@@ -13,7 +13,7 @@ use Illuminate\Http\Request;
 class GameController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display a listing of the games.
      *
      * @param Request $request
      * @return Application|Factory|View
@@ -36,7 +36,7 @@ class GameController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Display the specified game.
      *
      * @param  \App\Models\Game  $game
      * @return Application|Factory|View

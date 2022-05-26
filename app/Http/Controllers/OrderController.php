@@ -15,7 +15,7 @@ class OrderController extends Controller
     }
 
     /**
-     * Show a listing of the orders.
+     * Display a listing of the orders.
      *
      * @return \Illuminate\Http\Response
      */
@@ -27,7 +27,7 @@ class OrderController extends Controller
     }
 
     /**
-     * Show an cart page.
+     * Display an cart page.
      * 
      * @return \Illuminate\Http\Response
      */
@@ -49,7 +49,7 @@ class OrderController extends Controller
     }
 
     /**
-     * Show a cart page.
+     * Display a cart page.
      * 
      * @return \Illuminate\Http\Response
      */
