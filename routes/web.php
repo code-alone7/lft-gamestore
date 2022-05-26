@@ -22,12 +22,12 @@ Route::get('/', HomeController::class)->name('home');
 
 Route::prefix('games')->group(function () {
     Route::get('/', [GameController::class, 'index'])->name('games');
-    Route::get('/show/{game}', [GameController::class, 'show'])->name('games.show');
+    Route::get('/{game}', [GameController::class, 'show'])->name('games.show');
 });
 
 Route::prefix('articles')->group(function () {
     Route::get('/', [ArticleController::class, 'index'])->name('articles');
-    Route::get('/show/{article}', [ArticleController::class, 'show'])->name('articles.show');
+    Route::get('/{article}', [ArticleController::class, 'show'])->name('articles.show');
 });
 
 Route::get('/cart', [OrderController::class, 'cart'])->name('cart');
@@ -37,7 +37,7 @@ Route::prefix('order')->group(function() {
     Route::post('/process', [OrderController::class, 'processOrder'])->name('order.process');
 
     Route::get('/list', [OrderController::class, 'list'])->name('order.list');
-    Route::get('/show/{order}', [OrderController::class, 'show'])->name('order.show');
+    Route::get('/{order}', [OrderController::class, 'show'])->name('order.show');
 });
 
 require __DIR__ . '/auth.php';
