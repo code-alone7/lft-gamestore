@@ -30,10 +30,10 @@ class OrderTest extends TestCase
     public function test_users_current_order()
     {
         $user = User::factory()->create();
-        $order = $user->currentOrderCreate();
+        $order = $user->currentOrder()->firstOrCreate();
 
-        $this->assertNotEmpty($user->currentOrderCreate());
-        $this->assertEquals($order->id, $user->currentOrderCreate()->id);
+        $this->assertNotEmpty($user->currentOrder()->firstOrCreate());
+        $this->assertEquals($order->id, $user->currentOrder()->firstOrCreate()->id);
     }
 
     public function test_users_isCrrentOrder_work()
@@ -42,7 +42,7 @@ class OrderTest extends TestCase
 
         $this->assertFalse($user->hasCurrentOrder());
 
-        $user->currentOrderCreate();
+        $user->currentOrder()->firstOrCreate();
 
         $this->assertTrue($user->hasCurrentOrder());
     }
@@ -53,13 +53,23 @@ class OrderTest extends TestCase
 
         $this->assertFalse($user->hasCurrentOrder());
 
-        $user->currentOrderCreate();
+        $user->currentOrder()->firstOrCreate();
 
         $this->assertTrue($user->hasCurrentOrder());
 
         $user->deleteCurrentOrder();
 
         $this->assertFalse($user->hasCurrentOrder());
+    }
+
+    public function test_set_order_status()
+    {
+        $user = User::factory()->create();
+        $order = $user->currentOrder()->firstOrCreate();
+
+        $this->assertEquals($order->getStatus(), config('orders.status_unpaid'));
+        $order->setStatus(config('orders.status_paid'));
+        $this->assertEquals($order->getStatus(), config('orders.status_paid'));
     }
 
     protected $seed = true;

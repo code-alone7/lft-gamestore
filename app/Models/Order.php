@@ -74,18 +74,31 @@ class Order extends Model
      */
     public function scopePaid(Builder $query): Builder
     {
-        return $query->ofStatus('order_statuses', 'title', config('orders.status_paid'));
+        return $query->ofStatus(config('orders.status_paid'));
+    }
+
+    /**
+     * Get status of this order.
+     * 
+     * @return string
+     */
+    public function getStatus(): string
+    {
+        return $this->status->title;
     }
     
     /**
      * Set status of this order.
      *
      * @param  string $status
-     * @return void
+     * @return Order
      */
-    public function setStatus(string $status): void
+    public function setStatus(string $status): Order
     {
-        $this->assosiate(OrderStatus::query()->where('title', $status)->first());
+        $this->status()->associate(OrderStatus::query()->where('title', $status)->first());
+        $this->save();
+
+        return $this;
     }
     
     /**

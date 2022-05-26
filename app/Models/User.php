@@ -86,22 +86,11 @@ class User extends Authenticatable
     /**
      * Get current order of this user.
      *
-     * @return Order|static|null
+     * @return Buildder|HasMany|static|null
      */
-    public function currentOrder(): Order|static|null
+    public function currentOrder(): Buildder|HasMany|static|null
     {
-        return $this->orders()->unpaid()->first();
-    }
-
-    /**
-     * Create current order of this user.
-     * If current order already exist it will be returned by this method.
-     *
-     * @return Order|static|null
-     */
-    public function currentOrderCreate(): Order|static|null
-    {
-        return $this->orders()->unpaid()->firstOrCreate();
+        return $this->orders()->unpaid();
     }
 
     /**
@@ -121,10 +110,22 @@ class User extends Authenticatable
      */
     public function deleteCurrentOrder(): void
     {
-        $order = $this->currentOrder();
+        $order = $this->currentOrder()->first();
 
         if ($order) {
             $order->delete();
         }
+    }
+
+    /**
+     * Get amount of games in current order.
+     * 
+     * @return int
+     */
+    public function gamesInOrderCount(): int
+    {
+        return $this->hasCurrentOrder() ?
+            $this->CurrentOrder()->first()->games()->count() :
+            0;
     }
 }

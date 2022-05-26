@@ -12,7 +12,7 @@ class Nav extends Component
     {   
         $this->links = [
             ["title" => "главная", "href" => route('home')],
-            ["title" => "мои заказы", "href" => "#"],
+            ["title" => "мои заказы", "href" => route('order.list')],
             ["title" => "новости", "href" => route('articles')],
             ["title" => "о компании", "href" => "#"],
         ];

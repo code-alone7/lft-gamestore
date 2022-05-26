@@ -17,9 +17,10 @@
   <body class="font-sans antialiased">
     <div class="main-wrapper">
       <x-header>
-        <x-payment/>
+        <x-payment />
         <div class="authorization-block">
           @auth
+            <span class="authorization-block__link">Профиль</span>
             <form method="POST" action="{{ route('logout') }}">            
               @csrf  
               <button type="submit" class="authorization-block__link">Выйти</button>
