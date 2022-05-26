@@ -56,4 +56,14 @@ class Game extends Model
             fn ($value) => Storage::disk('public')->url($value)
         );
     }
+
+    /**
+     * Get all orders where this game is.
+     * 
+     * @return BelongsToMany
+     */
+    public function orders(): BelongsToMany
+    {
+        return $this->belongsToMany(Order::class);
+    }
 }

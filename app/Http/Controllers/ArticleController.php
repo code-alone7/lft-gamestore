@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class ArticleController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display a listing of the articles.
      *
      * @return \Illuminate\Http\Response
      */
@@ -24,7 +24,7 @@ class ArticleController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Display the specified article.
      *
      * @param  \App\Models\Article  $article
      * @return \Illuminate\Http\Response

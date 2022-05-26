@@ -4,7 +4,7 @@
       :title="$product->title"
       :price="$product->price"
       :photo="$product->photo"
-      buy-href="{{ route('games.show', ['game' => $product->id]) }}"
+      buy-href="{{ route('order.add-game', ['game' => $product->id]) }}"
       show-href="{{ route('games.show', ['game' => $product->id]) }}" />
   @endforeach
 </div>

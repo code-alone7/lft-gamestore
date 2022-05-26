@@ -1,36 +1,27 @@
-<x-guest-layout>
-    <x-auth-card>
-        <x-slot name="logo">
-            <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-            </a>
-        </x-slot>
+<x-app-layout title="Подтверждение паролья" header="Подтвердите пароль">
 
-        <div class="mb-4 text-sm text-gray-600">
-            {{ __('This is a secure area of the application. Please confirm your password before continuing.') }}
-        </div>
+  <div class="mb-4 text-sm text-gray-600">
+    {{ __('This is a secure area of the application. Please confirm your password before continuing.') }}
+  </div>
 
-        <!-- Validation Errors -->
-        <x-auth-validation-errors class="mb-4" :errors="$errors" />
+  <!-- Validation Errors -->
+  <x-auth-validation-errors class="mb-4" :errors="$errors" />
 
-        <form method="POST" action="{{ route('password.confirm') }}">
-            @csrf
+  <form class="form" method="POST" action="{{ route('password.confirm') }}">
+    @csrf
 
-            <!-- Password -->
-            <div>
-                <x-label for="password" :value="__('Password')" />
+    <!-- Password -->
+    <div class="form__row form-row">
+      <div class="form-row__cell form-cell">
+        <label for="password" class="form-cell__label form-label">Пароль</label>
+        <input id="password" type="password" class="form-cell__input form-input" name="password"  required autocomplete="current-password" autofocus>
+      </div>
+    </div>
 
-                <x-input id="password" class="block mt-1 w-full"
-                                type="password"
-                                name="password"
-                                required autocomplete="current-password" />
-            </div>
-
-            <div class="flex justify-end mt-4">
-                <x-button>
-                    {{ __('Confirm') }}
-                </x-button>
-            </div>
-        </form>
-    </x-auth-card>
-</x-guest-layout>
+    <div class="form__row form-row">
+      <div class="form-row__cell form-row__cell--unstretched form-cell">
+        <button class="form-input form-input--button">Подтверждение</button>
+      </div>
+    </div>
+  </form>
+</x-app-layout>

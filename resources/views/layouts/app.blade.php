@@ -17,8 +17,19 @@
   <body class="font-sans antialiased">
     <div class="main-wrapper">
       <x-header>
-        <x-payment/>
-        <div class="authorization-block"><a href="#" class="authorization-block__link">Регистрация</a><a href="#" class="authorization-block__link">Войти</a></div>
+        <x-payment />
+        <div class="authorization-block">
+          @auth
+            <span class="authorization-block__link">Профиль</span>
+            <form method="POST" action="{{ route('logout') }}">            
+              @csrf  
+              <button type="submit" class="authorization-block__link">Выйти</button>
+            </form>
+          @else
+            <a href="{{ route('register') }}" class="authorization-block__link">Регистрация</a>
+            <a href="{{ route('login') }}" class="authorization-block__link">Войти</a>
+          @endauth
+        </div>
       </x-header>
       <div class="middle">
         <x-sidebar/>
@@ -38,6 +49,7 @@
           что немаловажно, выгодно!
         </p>
       </x-footer>
+      <x-notifications />
     </div>
   </body>
 </html>

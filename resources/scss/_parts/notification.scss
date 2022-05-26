@@ -1,0 +1,37 @@
+.notification {
+  color: white;
+  padding: 5px 10px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+
+  &--green {
+    background-color: rgb(0, 160, 61);
+  }
+  &--gray {
+    background-color: rgb(0, 160, 61);
+  }
+  &--yellow {
+    background-color: rgb(163, 152, 0);
+  }
+  &--red {
+    background-color: rgb(160, 0, 0);
+  }
+
+  &__content {
+    flex: 1;
+    margin-right: 4px;
+  }
+
+  &__btn {
+    flex-shrink: 0;
+    margin-left: auto;
+    font-size: 20px;
+    opacity: 0;
+    transition: opacity 100ms;
+  }
+
+  &:hover &__btn {
+    opacity: 1;
+  }
+}

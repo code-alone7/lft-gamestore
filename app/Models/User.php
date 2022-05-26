@@ -72,4 +72,60 @@ class User extends Authenticatable
     {
         return $this->hasMany(Article::class, 'uploader_id');
     }
+
+    /**
+     * Get all orders of this user.
+     * 
+     * @return HasMany 
+     */
+    public function orders(): HasMany
+    {
+        return $this->hasMany(Order::class, 'customer_id');
+    }
+
+    /**
+     * Get current order of this user.
+     *
+     * @return Buildder|HasMany|static|null
+     */
+    public function currentOrder(): Buildder|HasMany|static|null
+    {
+        return $this->orders()->unpaid();
+    }
+
+    /**
+     * Check if current order exist.
+     * 
+     * @return bool
+     */
+    public function hasCurrentOrder()
+    {
+        return (bool) $this->orders()->unpaid()->first();
+    }
+
+    /**
+     * Delete current order of this user.
+     * 
+     * @return void
+     */
+    public function deleteCurrentOrder(): void
+    {
+        $order = $this->currentOrder()->first();
+
+        if ($order) {
+            $order->delete();
+        }
+    }
+
+    /**
+     * Get amount of games in current order.
+     * 
+     * @return int
+     */
+    public function gamesInOrderCount(): int
+    {
+        return $this->hasCurrentOrder() ?
+            $this->CurrentOrder()->first()->games()->count() :
+            0;
+    }
 }
