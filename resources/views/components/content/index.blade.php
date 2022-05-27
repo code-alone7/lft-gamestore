@@ -14,9 +14,9 @@
     <div class="content-main__container">
       {{ $slot }}
     </div>
-    @isset($paginator)
+    @isset($contentFooter)
     <div class="content-footer__container">
-      {{ $paginator->links() }}
+      {{ $contentFooter }}
     </div>
     @endisset
   </div>

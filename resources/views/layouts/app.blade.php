@@ -33,7 +33,12 @@
       </x-header>
       <div class="middle">
         <x-sidebar/>
-        <x-content :header="$header" :content-top="$contentTop" :header-bottom="$headerBottom ?? null" :content-bottom="$contentBottom ?? null" :paginator="$paginator">
+        <x-content 
+            :header="$header" 
+            :content-top="$contentTop" 
+            :header-bottom="$headerBottom ?? null" 
+            :content-bottom="$contentBottom ?? null" 
+            :content-footer="$contentFooter ?? null">
           {{ $slot }}
         </x-content>
       </div>
