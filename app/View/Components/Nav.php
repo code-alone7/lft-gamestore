@@ -11,10 +11,10 @@ class Nav extends Component
     public function __construct()
     {   
         $this->links = [
-            ["title" => "главная", "href" => route('home')],
-            ["title" => "мои заказы", "href" => route('order.list')],
-            ["title" => "новости", "href" => route('articles')],
-            ["title" => "о компании", "href" => "#"],
+            ["title" => __('nav.home'), "href" => route('home')],
+            ["title" => __('nav.my-orders'), "href" => route('order.list')],
+            ["title" => __('nav.news'), "href" => route('articles')],
+            ["title" => __('nav.about'), "href" => "#"],
         ];
     }    
 
