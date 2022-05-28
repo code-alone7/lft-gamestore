@@ -11,6 +11,7 @@
   "Registration": "Регистрация",
   "Password change": "Смена паролья",
   "games of genre": "Игры категории :genre",
+  "Categories": "Категории",
 
   "Name": "Имя",
   "Email": "Почта",
@@ -20,8 +21,10 @@
   "Forgot your password?": "Забыли пароль?",
   "Already registered?": "Уже зарегистрированны?",
   "Email Password Reset Link": "Отправить код подтверждения",
+  "Profile": "Профиль",
   "Log in": "Вход",
   "Register": "Регистрация",
+  "Log out": "Выход",
   "Reset Password": "Сменить пароль",
   "end Verification Email": "Отправить заново",
   "Thanks for signing up! Before getting started, could you verify your email address by clicking on the link we just emailed to you? If you didn't receive the email, we will gladly send you another": "Спасибо за регистрацию! Прежде чем начать, не могли бы вы подтвердить свой адрес электронной почты, перейдя по ссылке, которую мы только что отправили вам по электронной почте? Если вы не получили электронное письмо, мы с радостью вышлем вам другое",
