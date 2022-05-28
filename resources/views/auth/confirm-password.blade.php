@@ -1,4 +1,4 @@
-<x-app-layout :title="__('page.title', ['title' => __('Password confirmation')])" :header="__('Confirm you password')">
+<x-app-layout :title="__('page.title', ['title' => __('Password confirmation')])" :header="__('Confirm your password')">
 
   <div class="mb-4 text-sm text-gray-600">
     {{ __('This is a secure area of the application. Please confirm your password before continuing.') }}
