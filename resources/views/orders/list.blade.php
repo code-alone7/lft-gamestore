@@ -1,4 +1,4 @@
-<x-app-layout title="Ваши заказы" header="Ваши заказы">
+<x-app-layout :title="__('page.title', ['title' => __('Your orders')])" header="Ваши заказы">
   <ul class="orders">
     @foreach ($orders as $order)
       <li class="orders__item">

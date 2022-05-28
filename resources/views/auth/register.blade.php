@@ -1,4 +1,4 @@
-<x-app-layout title="Регистрация на сайте Gamestore" header="Регистрация">
+<x-app-layout :title="__('page.title', ['titie' => __('Registration')])" :header="__('Registration')">
 
   <!-- Validation Errors -->
   <x-auth-validation-errors class="mb-4" :errors="$errors" />

@@ -1,4 +1,4 @@
-<x-app-layout title="Last News | GameStore" header="Latest News">
+<x-app-layout :title="__('page.title', ['title' => __('Latest news')])" :header="__('Latest news')">
   <div class="news-list__container">
     @foreach($articles as $article)
       <div class="news-list__item">

@@ -1,4 +1,4 @@
-<x-app-layout title="Восстановление паролья" header="Восстановления паролья">
+<x-app-layout :title="__('page.title', ['title' => __('Password recovery')])" :header="__('Password recovery')">
 
   <!-- Session Status -->
   <x-auth-session-status class="mb-4" :status="session('status')" />

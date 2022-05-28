@@ -1,4 +1,4 @@
-<x-app-layout title="{{ $game->title }} | Gamestore" :header="$game->title">
+<x-app-layout :title="__('page.title', ['title' => $game->title])" :header="__('headers.game', ['name' => $game->title])">
   <div class="product-container">
     <div class="product-container__image-wrap"><img src="{{ $game->photo }}" class="image-wrap__image-product"></div>
     <div class="product-container__content-text">

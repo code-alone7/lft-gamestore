@@ -1,4 +1,4 @@
-<x-app-layout title="Корзина" header="Текущий заказ">
+<x-app-layout :title="__('page.title', ['title' => __('Cart')])" header="Текущий заказ">
   @if ($order && $order->games()->count())  
     <div class="cart-product-list">
 

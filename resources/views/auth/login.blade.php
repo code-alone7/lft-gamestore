@@ -1,4 +1,4 @@
-<x-app-layout title="Аутентификация | Gamestore" header="Вход">
+<x-app-layout :title="__('page.title', ['title' => __('Authentication')])" :header="__('Log in')">
 
   <!-- Session Status -->
   <x-auth-session-status class="mb-4" :status="session('status')" />

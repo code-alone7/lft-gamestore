@@ -1,4 +1,4 @@
-<x-app-layout title="Корзина" header="Текущий заказ">
+<x-app-layout :title="__('page.title', ['title' => __('Order') . ' ' . $order->updated_at->format('d/m/Y')])" header="Текущий заказ">
   <div class="cart-product-list">
     @foreach($order->games as $game)
       <div class="cart-product-list__item">

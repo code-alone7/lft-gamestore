@@ -1,4 +1,4 @@
-<x-app-layout title="Смена паролья" header="Смена паролья">
+<x-app-layout :title="__('page.title', ['title' => __('Password change')])" :header="__('Password change')">
 
   <!-- Validation Errors -->
   <x-auth-validation-errors class="mb-4" :errors="$errors" />
