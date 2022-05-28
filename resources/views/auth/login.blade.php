@@ -12,7 +12,7 @@
     <!-- Email Address -->
     <div class="form__row form-row">
       <div class="form-row__cell form-cell">
-        <label for="email" class="form-cell__label form-label">Почта</label>
+        <label for="email" class="form-cell__label form-label">{{ __('Email') }}</label>
         <input id="email" type="text" class="form-cell__input form-input" name="email" value="{{ old('email') }}" required autofocus>
       </div>
     </div>
@@ -20,7 +20,7 @@
     <!-- Password -->
     <div class="form__row form-row">
         <div class="form-row__cell form-cell">
-            <label for="password" class="form-cell__label form-label">Пароль</label>
+            <label for="password" class="form-cell__label form-label">{{ __('Password') }}</label>
             <input id="password" type="password" class="form-cell__input form-input" name="password"  required autocomplete="new-password">
         </div>
     </div>
@@ -29,20 +29,20 @@
     <div class="form__row form-row">
       <div class="form-row__cell form-cell form-cell--row">
         <input id="remember_me" type="checkbox" class="form-cell__input form-input form-input--checkbox" name="remember_me">
-        <label for="remember_me" class="form-cell__label form-label">Запомни меня</label>
+        <label for="remember_me" class="form-cell__label form-label">{{ __('Remember me') }}</label>
       </div>
     </div>
 
     @if (Route::has('password.request'))
       <a class="underline text-sm text-green-600 hover:text-green-900 mb-2" href="{{ route('password.request') }}">
-        Забыли пароль?
+        {{ __('Forgot your password?') }}
       </a>
     @endif
 
           
     <div class="form__row form-row">
       <div class="form-row__cell form-row__cell--unstretched form-cell">
-        <button class="form-input form-input--button">Вход</button>
+        <button class="form-input form-input--button">{{ __('Log in') }}</button>
       </div>
     </div>
   </form>

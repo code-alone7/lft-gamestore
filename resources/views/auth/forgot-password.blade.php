@@ -12,7 +12,7 @@
     <!-- Email Address -->
     <div class="form__row form-row">
       <div class="form-row__cell form-cell">
-        <label for="email" class="form-cell__label form-label">Почта</label>
+        <label for="email" class="form-cell__label form-label">{{ __('Email') }}</label>
         <input id="email" type="text" class="form-cell__input form-input" name="email" value="{{ old('email') }}"
           required>
       </div>
@@ -20,7 +20,7 @@
 
     <div class="form__row form-row">
       <div class="form-row__cell form-row__cell--unstretched form-cell">
-        <button class="form-input form-input--button">Отправить код подтверждения</button>
+        <button class="form-input form-input--button">{{ __('Email Password Reset Link') }}</button>
       </div>
     </div>
   </form>

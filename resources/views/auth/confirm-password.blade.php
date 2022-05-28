@@ -13,14 +13,14 @@
     <!-- Password -->
     <div class="form__row form-row">
       <div class="form-row__cell form-cell">
-        <label for="password" class="form-cell__label form-label">Пароль</label>
+        <label for="password" class="form-cell__label form-label">{{ __('Password') }}</label>
         <input id="password" type="password" class="form-cell__input form-input" name="password"  required autocomplete="current-password" autofocus>
       </div>
     </div>
 
     <div class="form__row form-row">
       <div class="form-row__cell form-row__cell--unstretched form-cell">
-        <button class="form-input form-input--button">Подтверждение</button>
+        <button class="form-input form-input--button">{{ __('Confirm') }}</button>
       </div>
     </div>
   </form>

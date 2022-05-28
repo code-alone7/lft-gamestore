@@ -15,7 +15,7 @@
 
             <div class="form__row form-row">
                 <div class="form-row__cell form-row__cell--unstretched form-cell">
-                    <button class="form-input form-input--button">Отправить заново</button>
+                    <button class="form-input form-input--button">{{ __('Resend Verification Email') }}</button>
                 </div>
             </div>
         </form>
