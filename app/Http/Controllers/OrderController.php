@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\OrderMail;
 use App\Models\Game;
 use App\Models\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class OrderController extends Controller
 {
@@ -104,9 +106,11 @@ class OrderController extends Controller
      */
     public function processOrder()
     {
-        $order = Auth::user()->currentOrder()->first();
+        $user = Auth::user();
+        $order = $user->currentOrder()->first();
         if ($order) {
             $order->setStatus(config('orders.status_paid'));
+            Mail::to($user)->send(new OrderMail($order));
             return redirect()->route('home');
         }
 
