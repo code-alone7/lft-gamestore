@@ -23,14 +23,11 @@ class AppLayout extends Component
 
     public bool $contentTop;
 
-    public LengthAwarePaginator|null $paginator;
-
-    public function __construct(string $title, string $header, bool $contentTop = false, LengthAwarePaginator|null $paginator = null)
+    public function __construct(string $title, string $header, bool $contentTop = false)
     {
         $this->title = $title;
         $this->header = $header;
         $this->contentTop = $contentTop;
-        $this->paginator = $paginator;
     }
 
     /**

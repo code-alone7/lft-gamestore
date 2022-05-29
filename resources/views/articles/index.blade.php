@@ -1,4 +1,4 @@
-<x-app-layout title="Last News | GameStore" header="Latest News" :paginator="$articles">
+<x-app-layout title="Last News | GameStore" header="Latest News">
   <div class="news-list__container">
     @foreach($articles as $article)
       <div class="news-list__item">
@@ -14,4 +14,8 @@
       </div>
     @endforeach
   </div>
+
+  <x-slot:contentFooter>
+    {{ $articles->links() }}
+  </x-slot:contentFooter>
 </x-app-layout>

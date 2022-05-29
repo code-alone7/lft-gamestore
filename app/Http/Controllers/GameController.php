@@ -44,10 +44,10 @@ class GameController extends Controller
     public function show(Game $game): View|Factory|Application
     {
         $recommendations = Game::query();
-
         foreach ($game->genres as $genre) {
             $recommendations->whereRelation('genres', 'genres.id', $genre->id);
         }
+        $recommendations->whereNot('id', $game->id);
 
         return view('games.show', [
             'game' => $game,

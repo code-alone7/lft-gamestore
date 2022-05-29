@@ -27,14 +27,14 @@
         <div class="cart-product-list__result-item__text">Итого</div>
         <div class="cart-product-list__result-item__value">{{ $order->games->sum('price') }} рублей</div>
       </div>
-
-      <div class="content-footer__container">
-        <form method="POST" action="{{ route('order.process') }}" class="btn-buy-wrap">
-          @csrf
-          <button href="order.process" class="btn-buy-wrap__btn-link">Перейти к оплате</button>
-        </form>
-      </div>
     </div>
+
+    <x-slot:contentFooter>      
+      <form method="POST" action="{{ route('order.process') }}" class="btn-buy-wrap">
+        @csrf
+        <button href="order.process" class="btn-buy-wrap__btn-link">Перейти к оплате</button>
+      </form>
+    </x-slot:contentFooter>
   @else
     <h1 class="text-center font-semibold text-2xl">Ваш заказ пуст <a class="underline text-green-600 hover:text-green-900 mb-2" href="{{ route('home') }}">Вернуться на главную</a></h1>
   @endif
