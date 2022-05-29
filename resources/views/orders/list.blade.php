@@ -20,18 +20,7 @@
               {{ $order->games()->sum('price') }} {{ __('Rub.') }}
             </li>
             <li class="order__info-item">
-              @switch($order->getStatus())
-                  @case(config('orders.status_paid'))
-                    Выполнен
-                    @break
-                  @case(config('orders.status_unpaid'))
-                    Текущий
-                    @break
-                  @case(config('orders.status_canceld'))
-                    Отменен
-                    @break
-                    @default                      
-              @endswitch
+              {{ __('ordres.'.$order->getStatus()) }}
             </li>
             <li class="order__info-item">
               <a href="{{ route('order.show', ['order' => $order->id]) }}" class="order__btn btn">{{ __('More') }}</a>
