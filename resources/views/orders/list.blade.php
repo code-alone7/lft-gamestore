@@ -1,4 +1,4 @@
-<x-app-layout title="Ваши заказы" header="Ваши заказы">
+<x-app-layout :title="__('page.title', ['title' => __('Your orders')])" header="Ваши заказы">
   <ul class="orders">
     @foreach ($orders as $order)
       <li class="orders__item">
@@ -17,24 +17,13 @@
               @endphp
             </li>
             <li class="order__info-item">
-              {{ $order->games()->sum('price') }} Руб.
+              {{ $order->games()->sum('price') }} {{ __('Rub.') }}
             </li>
             <li class="order__info-item">
-              @switch($order->getStatus())
-                  @case(config('orders.status_paid'))
-                    Выполнен
-                    @break
-                  @case(config('orders.status_unpaid'))
-                    Текущий
-                    @break
-                  @case(config('orders.status_canceld'))
-                    Отменен
-                    @break
-                    @default                      
-              @endswitch
+              {{ __('ordres.'.$order->getStatus()) }}
             </li>
             <li class="order__info-item">
-              <a href="{{ route('order.show', ['order' => $order->id]) }}" class="order__btn btn">Подробнее</a>
+              <a href="{{ route('order.show', ['order' => $order->id]) }}" class="order__btn btn">{{ __('More') }}</a>
             </li>
           </ul>
         </div>

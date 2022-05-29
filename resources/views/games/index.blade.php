@@ -1,4 +1,4 @@
-<x-app-layout title="{{ $genre->title }} | Gamestore" header="Игры категории {{ $genre->title }}">
+<x-app-layout :title="__('page.title', ['title' => $genre->title])" :header="__('headers.games', ['genre' => $genre->title])">
   <x-products :content="$games" />
 
   <x-slot:contentFooter>

@@ -1,4 +1,4 @@
-<x-app-layout title="Gamestore home page" header="Последние новинки" content-top>
+<x-app-layout :title="__('page.title', ['title' => __('Home Page')])" :header="__('headers.home')" content-top>
   <x-products :content="$games" />
 
   <x-slot:contentFooter>

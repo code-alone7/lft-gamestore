@@ -1,4 +1,4 @@
-<x-app-layout title="Last News | GameStore" header="Latest News">
+<x-app-layout :title="__('page.title', ['title' => __('Latest news')])" :header="__('Latest news')">
   <div class="news-list__container">
     @foreach($articles as $article)
       <div class="news-list__item">
@@ -10,7 +10,7 @@
             {{ $article->shortContent() }}
           </div>
         </div>
-        <div class="news-list__item__content__news-btn-wrap"><a href="{{ route('articles.show', ['article' => $article->id]) }}" class="btn btn-brown">Подробнее</a></div>
+        <div class="news-list__item__content__news-btn-wrap"><a href="{{ route('articles.show', ['article' => $article->id]) }}" class="btn btn-brown">{{ __('More') }}</a></div>
       </div>
     @endforeach
   </div>

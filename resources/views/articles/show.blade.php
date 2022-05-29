@@ -1,4 +1,4 @@
-<x-app-layout title="{{ $article->header }} | GameStore" header="Новости">
+<x-app-layout :title="__('page.title', ['title' => $article->header])" :header="__('headers.article', ['name' => $article->short_header])">
   <div class="news-block content-text">
     <h3 class="content-text__title">
       {{ $article->header }}

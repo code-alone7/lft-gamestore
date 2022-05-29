@@ -20,14 +20,14 @@
         <x-payment />
         <div class="authorization-block">
           @auth
-            <span class="authorization-block__link">Профиль</span>
+            <span class="authorization-block__link">{{ __('Profile') }}</span>
             <form method="POST" action="{{ route('logout') }}">            
               @csrf  
-              <button type="submit" class="authorization-block__link">Выйти</button>
+              <button type="submit" class="authorization-block__link">{{ __('Log out') }}</button>
             </form>
           @else
-            <a href="{{ route('register') }}" class="authorization-block__link">Регистрация</a>
-            <a href="{{ route('login') }}" class="authorization-block__link">Войти</a>
+            <a href="{{ route('register') }}" class="authorization-block__link">{{ __('Register') }}</a>
+            <a href="{{ route('login') }}" class="authorization-block__link">{{ __('Log in') }}</a>
           @endauth
         </div>
       </x-header>
@@ -44,14 +44,7 @@
       </div>
       <x-footer>
         <p>
-          Интернет-магазин компьютерных игр ГЕЙМСМАРКЕТ - это
-          онлайн-магазин игр для геймеров, существующий на рынке уже 5 лет.
-          У нас широкий спектр лицензионных игр на компьютер, ключей для игр - для активации
-          и авторизации, а также карты оплаты (game-card, time-card, игровые валюты и т.д.),
-          коды продления и многое друго. Также здесь всегда можно узнать последние новости
-          из области онлайн-игр для PC. На сайте предоставлены самые востребованные и
-          актуальные товары MMORPG, приобретение которых здесь максимально удобно и,
-          что немаловажно, выгодно!
+          {{ __('footer.message') }}
         </p>
       </x-footer>
       <x-notifications />
