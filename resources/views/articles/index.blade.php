@@ -10,7 +10,7 @@
             {{ $article->shortContent() }}
           </div>
         </div>
-        <div class="news-list__item__content__news-btn-wrap"><a href="{{ route('articles.show', ['article' => $article->id]) }}" class="btn btn-brown">Подробнее</a></div>
+        <div class="news-list__item__content__news-btn-wrap"><a href="{{ route('articles.show', ['article' => $article->id]) }}" class="btn btn-brown">{{ __('More') }}</a></div>
       </div>
     @endforeach
   </div>

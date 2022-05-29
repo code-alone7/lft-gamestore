@@ -17,7 +17,7 @@
               @endphp
             </li>
             <li class="order__info-item">
-              {{ $order->games()->sum('price') }} Руб.
+              {{ $order->games()->sum('price') }} {{ __('Rub.') }}
             </li>
             <li class="order__info-item">
               @switch($order->getStatus())
@@ -34,7 +34,7 @@
               @endswitch
             </li>
             <li class="order__info-item">
-              <a href="{{ route('order.show', ['order' => $order->id]) }}" class="order__btn btn">Подробнее</a>
+              <a href="{{ route('order.show', ['order' => $order->id]) }}" class="order__btn btn">{{ __('More') }}</a>
             </li>
           </ul>
         </div>
