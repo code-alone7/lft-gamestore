@@ -22,10 +22,22 @@ You can find out more on their website https://voyager.devdojo.com/
 $ git clone https://github.com/code-alone7/lft-gamestore.git
 ```
 
+- Checkout to release branch
+
+```
+$ git checkout release-1
+```
+
 - Run composer
 
 ```
 $ composer install --optimize-autoloader --no-dev
+```
+
+- Run laravel mix
+
+```
+$ npm run prod
 ```
 
 - Setup database connection in .env file
