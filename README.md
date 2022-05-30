@@ -18,14 +18,14 @@ You can find out more on their website https://voyager.devdojo.com/
 
 - Clone repository
 
-```
-$ git clone https://github.com/code-alone7/lft-gamestore.git
+```sh
+git clone https://github.com/code-alone7/lft-gamestore.git
 ```
 
 - Checkout to release branch
 
-```
-$ git checkout release-1
+```sh
+git checkout release-1
 ```
 
 - Configure you .env file
@@ -52,29 +52,29 @@ $ git checkout release-1
 
 - Run commands
 
-```
-$ composer install --optimize-autoloader --no-dev
-$ php artisan key:generate
-$ php artisan storage:link
+```sh
+composer install --optimize-autoloader --no-dev
+php artisan key:generate
+php artisan storage:link
 ```
 
 - Run frontend build
 
-```
-$ npm i
-$ npm run prod
+```sh
+npm i
+npm run prod
 ```
 
 - Migrate tables and seed some technical data
 
-```
-$ php artisan migrate --seed
+```sh
+php artisan migrate --seed
 ```
 
 - *Seed demo data if you wont (it gonna take a while)
 
-```
-$ php artisan db:seed FakeDataSeeder
+```sh
+php artisan db:seed FakeDataSeeder
 ```
 
 ## Server Requirements
