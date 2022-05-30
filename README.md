@@ -34,9 +34,16 @@ $ git checkout release-1
 $ composer install --optimize-autoloader --no-dev
 ```
 
-- Run laravel mix
+- Run encryption key generation
 
 ```
+$ php artisan key:generate
+```
+
+- Run frontend build
+
+```
+$ npm i
 $ npm run prod
 ```
 
@@ -57,7 +64,7 @@ DB_PASSWORD=secret
 $ php artisan migrate --seed
 ```
 
-- Seed demo data
+- *Seed demo data if you wont
 
 ```
 $ php artisan db:seed FakeDataSeeder
