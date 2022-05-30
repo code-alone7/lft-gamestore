@@ -53,7 +53,7 @@ git checkout release-1
 - Run commands
 
 ```sh
-composer install --optimize-autoloader --no-dev
+composer install --optimize-autoloader
 php artisan key:generate
 php artisan storage:link
 ```
