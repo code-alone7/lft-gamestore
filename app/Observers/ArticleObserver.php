@@ -29,8 +29,8 @@ class ArticleObserver
      */
     public function deleted(Article $article)
     {
-        if (Storage::disk('public')->exists($article->photo)) {
-            Storage::delete($article->photo);
+        if (Storage::disk('public')->exists($article->getRawOriginal('photo'))) {
+            Storage::disk('public')->delete($article->getRawOriginal('photo'));
         }
     }
 }

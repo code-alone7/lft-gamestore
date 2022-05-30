@@ -29,8 +29,8 @@ class GameObserver
      */
     public function deleted(Game $game)
     {
-        if (Storage::disk('public')->exists($game->photo)) {
-            Storage::delete($game->photo);
+        if (Storage::disk('public')->exists($game->getRawOriginal('photo'))) {
+            Storage::disk('public')->delete($game->getRawOriginal('photo'));
         }
     }
 }
