@@ -14,9 +14,15 @@ class OrderStatusSeeder extends Seeder
      * @return void
      */
     public function run()
-    {        
-        OrderStatus::create(['title' => config('orders.status_unpaid')]);
-        OrderStatus::create(['title' => config('orders.status_paid')]);
-        OrderStatus::create(['title' => config('orders.status_canceled')]);
+    {
+        if (!OrderStatus::query()->where('title', config('orders.status_unpaid'))->first()) {
+            OrderStatus::create(['title' => config('orders.status_unpaid')]);
+        }
+        if (!OrderStatus::query()->where('title', config('orders.status_paid'))->first()) {
+            OrderStatus::create(['title' => config('orders.status_paid')]);
+        }
+        if (!OrderStatus::query()->where('title', config('orders.status_canceled'))->first()) {
+            OrderStatus::create(['title' => config('orders.status_canceled')]);
+        }
     }
 }
