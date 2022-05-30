@@ -2,7 +2,11 @@
 
 namespace App\Providers;
 
+use App\Models\Article;
+use App\Models\Game;
 use App\Models\Order;
+use App\Observers\ArticleObserver;
+use App\Observers\GameObserver;
 use App\Observers\OrderObserver;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
@@ -30,6 +34,8 @@ class EventServiceProvider extends ServiceProvider
     public function boot()
     {
         Order::observe(OrderObserver::class);
+        Game::observe(GameObserver::class);
+        Article::observe(ArticleObserver::class);
     }
 
     /**
