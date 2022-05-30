@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\GameController;
 use App\Http\Controllers\HomeController;
@@ -39,6 +40,8 @@ Route::prefix('order')->group(function() {
     Route::get('/list', [OrderController::class, 'list'])->name('order.list');
     Route::get('/{order}', [OrderController::class, 'show'])->name('order.show');
 });
+
+Route::get('/about', AboutController::class)->name('about');
 
 require __DIR__ . '/auth.php';
 

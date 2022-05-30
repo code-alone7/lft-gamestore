@@ -14,7 +14,7 @@ class Nav extends Component
             ["title" => __('nav.home'), "href" => route('home')],
             ["title" => __('nav.my-orders'), "href" => route('order.list')],
             ["title" => __('nav.news'), "href" => route('articles')],
-            ["title" => __('nav.about'), "href" => "#"],
+            ["title" => __('nav.about'), "href" => route('about')],
         ];
     }    
 
