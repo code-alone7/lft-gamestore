@@ -28,16 +28,34 @@ $ git clone https://github.com/code-alone7/lft-gamestore.git
 $ git checkout release-1
 ```
 
-- Run composer
+- Configure you .env file
+
+  - make .env out of .env.expample
+  - Setup database connection
+  ```
+  DB_CONNECTION=mysql
+  DB_HOST=127.0.0.1
+  DB_PORT=3306
+  DB_DATABASE=homestead
+  DB_USERNAME=homestead
+  DB_PASSWORD=secret
+  ```
+  - Setup mail data in .env file
+  ```
+  MAIL_MAILER=smtp
+  MAIL_HOST=smtp.mailtrap.io
+  MAIL_PORT=2525
+  MAIL_USERNAME=
+  MAIL_PASSWORD=
+  MAIL_ENCRYPTION=tls
+  ```
+
+- Run commands
 
 ```
 $ composer install --optimize-autoloader --no-dev
-```
-
-- Run encryption key generation
-
-```
 $ php artisan key:generate
+$ php artisan storage:link
 ```
 
 - Run frontend build
@@ -47,38 +65,16 @@ $ npm i
 $ npm run prod
 ```
 
-- Setup database connection in .env file
-
-```  
-DB_CONNECTION=mysql
-DB_HOST=127.0.0.1
-DB_PORT=3306
-DB_DATABASE=homestead
-DB_USERNAME=homestead
-DB_PASSWORD=secret
-```
-
 - Migrate tables and seed some technical data
 
 ```
 $ php artisan migrate --seed
 ```
 
-- *Seed demo data if you wont
+- *Seed demo data if you wont (it gonna take a while)
 
 ```
 $ php artisan db:seed FakeDataSeeder
-```
-
-- Setup mail data in .env file
-
-```
-MAIL_MAILER=smtp
-MAIL_HOST=smtp.mailtrap.io
-MAIL_PORT=2525
-MAIL_USERNAME=
-MAIL_PASSWORD=
-MAIL_ENCRYPTION=tls
 ```
 
 ## Server Requirements
