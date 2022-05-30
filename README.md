@@ -40,9 +40,10 @@ $ composer install --optimize-autoloader --no-dev
 $ php artisan key:generate
 ```
 
-- Run laravel mix
+- Run frontend build
 
 ```
+$ npm i
 $ npm run prod
 ```
 
