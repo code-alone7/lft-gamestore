@@ -31,7 +31,15 @@ git checkout release-1
 - Configure you .env file
 
   - make .env out of .env.expample
+
+  - configure you url
+  
+  ```  
+  APP_URL=/*your app url*/
+  ```
+
   - Setup database connection
+
   ```
   DB_CONNECTION=mysql
   DB_HOST=127.0.0.1
@@ -40,7 +48,9 @@ git checkout release-1
   DB_USERNAME=homestead
   DB_PASSWORD=secret
   ```
+  
   - Setup mail data in .env file
+
   ```
   MAIL_MAILER=smtp
   MAIL_HOST=smtp.mailtrap.io
