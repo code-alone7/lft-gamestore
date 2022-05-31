@@ -25,7 +25,7 @@ class Genre extends Model
      *
      * @return BelongsTo
      */
-    public function user(): BelongsTo
+    public function uploader(): BelongsTo
     {
         return $this->belongsTo(User::class, 'uploader_id');
     }
