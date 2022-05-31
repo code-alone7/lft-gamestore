@@ -11,7 +11,7 @@
         <div class="cart-product__item__cart-date">
           <div class="cart-product__item__cart-date__content">{{ $game->created_at->format('d/m/Y') }}</div>
         </div>
-        <div class="cart-product__item__product-price"><span class="product-price__value">{{ $game->price }} {{ trans_choice('content.rubles', $game->price) }}</span></div>
+        <div class="cart-product__item__product-price"><span class="product-price__value">{{ $game->price }} {{ trans_choice('content.rubles', $game->price % 10) }}</span></div>
         <div class="cart-product__item__product-remove">
           <form method="POST" action="{{ route('order.remove-game', ['game' => $game->id]) }}">
             @csrf
@@ -24,7 +24,7 @@
     @php $sumPrice = $order->games->sum('price') @endphp
     <div class="cart-product-list__result-item">
       <div class="cart-product-list__result-item__text">{{ __('Total') }}</div>
-      <div class="cart-product-list__result-item__value">{{ $sumPrice }} {{ trans_choice('content.rubles', $sumPrice) }}</div>
+      <div class="cart-product-list__result-item__value">{{ $sumPrice }} {{ trans_choice('content.rubles', $sumPrice % 10) }}</div>
     </div>
   </div>
 </x-app-layout>
