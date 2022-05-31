@@ -46,8 +46,13 @@ class Article extends Model
             fn ($value) => Storage::disk('public')->url($value)
         );
     }
-
-    public function shortContent()
+    
+    /**
+     * Get first 300 characters of unformatted content.
+     *
+     * @return string
+     */
+    public function shortContent(): string
     {
         $shortContent = strip_tags($this->content);
         
